@@ -9,29 +9,29 @@ import com.springboot.project.repositories.ClientRepository;
 
 @Service
 public class ClientService {
-	
+
 	@Autowired
 	private ClientRepository repository;
-	
+
 	public ClientDto convert(ClientEntity client) {
-		
+
+		// fetching data from database
 		ClientDto dto = new ClientDto();
 		
-		client.setId(dto.getId());
-		client.setFirsName(dto.getFirstName());
-		client.setEmail(dto.getEmail());
-		client.setPhone(dto.getPhone());
-		client.setAddress(dto.getAddress());
-		
+		dto.setFirstName(client.getFirsName());
+		dto.setLastName(client.getLastName());
+		dto.setEmail(client.getEmail());
+		dto.setAddress(client.getAddress());
+		dto.setPhone(client.getPhone());
 		return dto;
 	}
 
 	public ClientDto getById(long id) {
-		
+
 		ClientEntity client = repository.getById(id);
-		
+
 		ClientDto dto = convert(client);
-		
+
 		return dto;
 	}
 }

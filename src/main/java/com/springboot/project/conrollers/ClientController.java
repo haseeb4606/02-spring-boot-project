@@ -17,7 +17,7 @@ public class ClientController {
 	private ClientService service;
 	
 	
-	@RequestMapping(value ="/id/{id}",method = RequestMethod.GET)
+	@RequestMapping(value ="/id={id}",method = RequestMethod.GET)
 	public ClientDto getById(@PathVariable long id) {
 		
 		return service.getById(id);
